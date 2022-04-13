@@ -124,7 +124,7 @@ pipeline {
                                     input "Deploy to Production?"
                                 }
                                 dir("${i}"){
-                                    bat "mvn deploy -DskipTests -DmuleDeploy -Danypoint.username=%ANYPOINT_CREDENTIALS_USR% -Danypoint.password=%ANYPOINT_CREDENTIALS_PSW% -Danypoint.env=Sandbox -Danypoint.region=us-east-1 -Danypoint.workers=1 -Danypoint.name=${i}-api-prod -Djar.name=${i}-%APP% -Dmule.artifact=%WORKSPACE%\\${i}\\target\\${i}-%APP%-mule-application.jar"
+                                    bat "mvn deploy -DskipTests -DmuleDeploy -Danypoint.username=%ANYPOINT_CREDENTIALS_USR% -Danypoint.password=%ANYPOINT_CREDENTIALS_PSW% -Danypoint.env=Sandbox -Danypoint.region=us-east-1 -Danypoint.workers=1 -Danypoint.name=${i}-api1-prod -Djar.name=${i}-%APP% -Dmule.artifact=%WORKSPACE%\\${i}\\target\\${i}-%APP%-mule-application.jar"
                                 }
                             }
                             
