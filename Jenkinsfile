@@ -17,8 +17,8 @@ pipeline {
                     stdout = bat( script: 'git.exe log -1 --pretty="format:Commit Message: %%s% %%%n%% Author: %%an% %%n% Date: %%aD%"' ,returnStdout: true).trim()
           		    env.GIT_COMMENT = (stdout.readLines().drop(1).join("\n"))
 
-                    if(env.GIT_BRANCH == "main")  {
-                        mail to: 'gagan.verma@apisero.com',
+                    if(env.GIT_BRANCH == "master")  {
+                        mail to: 'sasikala.vatti@apisero.com',
                         subject: "Approve Production Pipeline: ${currentBuild.fullDisplayName}",
                         body: "Please click  here  ${BUILD_URL} input to approve or reject the start of prod pipeline"
 
@@ -80,7 +80,7 @@ pipeline {
 
                         }else if(env.GIT_BRANCH == "qa")  {
 
-                            mail to: 'gagan.verma@apisero.com',
+                            mail to: 'sasikala.vatti@apisero.com',
                             subject: "Approve QA Pipeline: ${currentBuild.fullDisplayName}",
                             body: "Please click  here  ${BUILD_URL} input to approve or reject the deployment in QA for the following GIT commment : \n\n${env.GIT_COMMENT}\n" 
                             
@@ -105,7 +105,7 @@ pipeline {
                             
                         }else if(env.GIT_BRANCH == "main")  {
 
-                            mail to: 'gagan.verma@apisero.com',
+                            mail to: 'sasikala.vatti@apisero.com',
                             subject: "Approve Production Pipeline: ${currentBuild.fullDisplayName}",
                             body: "Please click  here  ${BUILD_URL} input to approve or reject the deployment in prod"
                             
@@ -139,17 +139,17 @@ pipeline {
     }
     post {
 		aborted {
-            		mail to: 'gagan.verma@apisero.com',
+            		mail to: 'sasikala.vatti@apisero.com',
 			subject: "Aborted Pipeline: ${currentBuild.fullDisplayName}",
 			body: "This ${env.BUILD_URL} pipeline was aborted for the following git comment:\n\n${env.GIT_COMMENT}\n"
         	}
 		failure {
-			mail to: 'gagan.verma@apisero.com',
+			mail to: 'sasikala.vatti@apisero.com',
 			subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
 			body: "Something is wrong with ${env.BUILD_URL} and found the following git comment:\n\n${env.GIT_COMMENT}\n"
 		}
 		success {
-			mail to: 'gagan.verma@apisero.com',
+			mail to: 'sasikala.vatti@apisero.com',
 			subject: "Successful Pipeline: ${currentBuild.fullDisplayName}",
 				body: "Sucessfully deployed and found the following git comment:\n\n${env.GIT_COMMENT}\n"
 		}
