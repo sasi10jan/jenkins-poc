@@ -74,7 +74,7 @@ pipeline {
                                 echo 'Deploying to the Development environment.'
                                 echo "Deploying ${i}"
                                 dir("${i}"){
-                                    bat "mvn deploy -DskipTests -DmuleDeploy -Danypoint.username=%ANYPOINT_CREDENTIALS_USR% -Danypoint.password=%ANYPOINT_CREDENTIALS_PSW% -Danypoint.env=Sandbox -Danypoint.region=us-east-1 -Danypoint.workers=1 -Danypoint.name=${i}-api-dev -Djar.name=${i}-%APP% -Dmule.artifact=%WORKSPACE%\\${i}\\target\\${i}-%APP%-mule-application.jar"
+                                   // bat "mvn deploy -DskipTests -DmuleDeploy -Danypoint.username=%ANYPOINT_CREDENTIALS_USR% -Danypoint.password=%ANYPOINT_CREDENTIALS_PSW% -Danypoint.env=Sandbox -Danypoint.region=us-east-1 -Danypoint.workers=1 -Danypoint.name=${i}-api-dev -Djar.name=${i}-%APP% -Dmule.artifact=%WORKSPACE%\\${i}\\target\\${i}-%APP%-mule-application.jar"
                                 }
                             }
 
@@ -99,7 +99,9 @@ pipeline {
                                     input "Deploy to QA?" 
                                 }
                                 dir("${i}"){
-                                    bat "mvn deploy -DskipTests -DmuleDeploy -Danypoint.username=%ANYPOINT_CREDENTIALS_USR% -Danypoint.password=%ANYPOINT_CREDENTIALS_PSW% -Danypoint.env=Sandbox -Danypoint.region=us-east-1 -Danypoint.workers=1 -Danypoint.name=${i}-api-qa -Djar.name=${i}-%APP% -Dmule.artifact=%WORKSPACE%\\${i}\\target\\${i}-%APP%-mule-application.jar"
+                                   
+                                    bat "mvn deploy -DskipTests -DmuleDeploy -Danypoint.username=%ANYPOINT_CREDENTIALS_USR% -Danypoint.password=%ANYPOINT_CREDENTIALS_PSW% -Danypoint.platform.client_id=%ANYPOINT_CLIENT_ID% -Danypoint.platform.client_secret=%ANYPOINT_CLIENT_SECRET% -Danypoint.env=Sandbox -Danypoint.workers=1 -Danypoint.name=${i}-api1-qa -Djar.name=${i}-%APP% -Dmule.artifact=%WORKSPACE%\\${i}\\target\\${i}-%APP%-mule-application.jar"
+                                 
                                 }
                             }
                             
