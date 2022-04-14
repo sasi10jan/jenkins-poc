@@ -50,8 +50,8 @@ pipeline {
         stage('Initialize'){
             environment {
                 ANYPOINT_CREDENTIALS = credentials('anypoint.credentials')
-                //ANYPOINT_CLIENT_ID = credentials('client_id')
-                //ANYPOINT_CLIENT_SECRET = credentials('client_secret')
+                ANYPOINT_CLIENT_ID = credentials('client_id')
+                ANYPOINT_CLIENT_SECRET = credentials('client_secret')
             }
             steps{
                 echo 'Creating Stages for each change project folder'
