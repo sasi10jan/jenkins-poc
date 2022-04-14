@@ -31,16 +31,15 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<cloudHubDeployment>
-						<uri>https://anypoint.mulesoft.com/</uri>
+					<uri>https://anypoint.mulesoft.com/</uri>
 						<muleVersion>4.4.0</muleVersion>
 						<username>${anypoint.username}</username>
 						<password>${anypoint.password}</password>
 						<applicationName>${anypoint.name}</applicationName>
 						<environment>${anypoint.env}</environment>
-						<region>${anypoint.region}</region>
 						<workers>${anypoint.workers}</workers>
 						<workerType>MICRO</workerType>
+						<businessGroup>apisero</businessGroup>
 						<objectStoreV2>true</objectStoreV2>
 						<properties>
 							<key>value</key>
