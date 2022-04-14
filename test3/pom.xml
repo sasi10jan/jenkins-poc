@@ -58,6 +58,7 @@
 			<artifactId>mule-http-connector</artifactId>
 			<version>1.6.0</version>
 			<classifier>mule-plugin</classifier>
+			
 		</dependency>
 		<dependency>
 			<groupId>org.mule.connectors</groupId>
