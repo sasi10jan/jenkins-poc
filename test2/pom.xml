@@ -31,7 +31,8 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<uri>https://anypoint.mulesoft.com/</uri>
+					<cloudHubDeployment>
+						<uri>https://anypoint.mulesoft.com/</uri>
 						<muleVersion>4.4.0</muleVersion>
 						<username>${anypoint.username}</username>
 						<password>${anypoint.password}</password>
